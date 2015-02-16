@@ -1,37 +1,35 @@
-var myName = "Alex G Mendoza";
-var myRole = "Web Developer"
-var formattedName = HTMLheaderName.replace("%data%", myName);
-var formattedRole = HTMLheaderRole.replace("%data%", myRole)
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+// Declaration of variables with information to fill the resume.
 
 var bio = {
-	"name": myName,
-	"role": myRole,
+	"name": "Alex G Mendoza",
+	"role": "WEB DEVELOPER",
 	"welcomeMessage": "Let me bring your website to life!",
 	"contacts": {
 		"mobile": "410-861-7064",
 		"email": "alexgm511@gmail.com",
 		"github": "alexgm511",
-		"location": "Oakland"
+		"twitter": "alexgm5of11",
+		"blog": "",
+		"location": "Oakland, CA"
 		},
-	"pictureURL": "images/agm.jpg",
+	"pictureURL": "images/agm-2.jpg",
 	"skills": [
-		"HTML",
-		"CSS",
-		"JavaScript"]
+		"Web Development",
+		"Design",
+		"Infographics",
+		"Illustration"]
 }
 
 var education = {
 	"schools": [
 		{
 		"name": "Pratt Institute",
-		"city": "New York",
+		"location": "New York, NY",
 		"major": ["Communications Design"],
 		"graduation": "1988"
 		}, {
 		"name": "University of Florida",
-		"city": "Gainesville, FL",
+		"location": "Gainesville, FL",
 		"major": ["Graphic Design"],
 		"graduation": "1978"
 		}
@@ -58,23 +56,23 @@ var work = {
 		{
 			"employer": "Venture Media",
 			"title": "IT Director",
-			"city": "Baltimore",
-			"dates": "",
-			"description": "Managed Order Processing System, Web Development for company sites"
+			"location": "Baltimore, MD",
+			"dates": "1995 - 2015",
+			"description": "Part of startup team and co-investor in direct-response and media company for 15+ years, both as employee and continued to present as independent consultant. Designed and programmed new order processing and customer service system to accommodate the venture’s rapid growth as well as upgrades, maintenance and support. SQLServer database with Access and VB front end system has processed over $68 million in orders. Designed and maintained company websites including www.landriderbikes.com. Set up and maintain Inter-tel and Digium Cloud telecom systems."
 		}, 
 		{
 			"employer": "Mendoza Design",
 			"title": "Design Director",
-			"city": "Baltimore",
-			"dates": "",
-			"description": "Designed and produced long list of communication materials and exhibit designs"
+			"location": "Baltimore, MD",
+			"dates": "1988 - 1995",
+			"description": "Identity, branding, exhibit and web design for domestic and international corporate and nonprofit clients. Work included logos, icons, posters, infographics, diagrams, manuals, books, newsletters, invitations, trade magazines and exhibitions for 10+ years. Clients included AIGA Baltimore, Catholic Relief Services, National Association of Home Builders, Maryland Association of Nonprofit Organizations. (Santiago, Chile) Identified and lead a team of chat room monitors for TalkCity.com. Programming for interactive exhibit for Federal Reserve Bank for Active8 Design in Baltimore, MD."
 		}, 
 		{
 			"employer": "U.S.News & World Report",
 			"title": "Associate Art Director",
-			"city": "Washington",
-			"dates": "",
-			"description": "Managed 19 person Art Department alongside the Art Director"
+			"location": "Washington, DC",
+			"dates": "1982 - 1986",
+			"description": "Responsible for day to day management of 19-member art department team in the design and production of weekly news magazine for 2 years. Staff Designer: Production of charts, maps and data visualization for graphic illustration of major world events for 2 years. Received Honorable Mention in American Congress on Surveying and Mapping Map Design Competition."
 		}
 	]
 }
@@ -84,21 +82,121 @@ var projects = {
 		{
 			"title": "LandRider Mobile",
 			"dates": "01/2015",
-			"description": "Created mobile enabled site for AutoShift bicycle site using jQuery Mobile",
+			"description": "Created mobile enabled site for AutoShift bicycle site using jQuery Mobile. Users can view bike models and accessories and add them to the shopping cart.",
 			"images": [
-				"images/index.jpg",
-				"images/products.jpg"
+				"images/landrider-1.jpg",
+				"images/landrider-2.jpg"
 			]
 		}, 
 		{
 			"title": "imagenIR",
 			"dates": "01/2015",
-			"description": "Created responsive website to display and analyse infra-red images to evaluate electrical installations using jQuery and Bootstrap",
+			"description": "Created responsive website to display and analyze infra-red images to evaluate electrical installations using jQuery and Bootstrap. Users can view the temperature in every part of the images by running the cursor over the image.",
 			"images": [
-				"images/index.jpg",
-				"images/analyse.jpg"
+				"images/imagenIR-1.jpg",
+				"images/imagenIR-2.jpg"
 			]
 		}
 	]
 }
+	
+	// call the displayContact function
+	displayContact();
+	// call the displayWork function
+	displayWork();
+	
+	// Format name and contact information and add it to the resume
 
+	function displayContact () {
+		var formattedName = HTMLheaderName.replace("%data%", bio.name);
+		var formattedRole = HTMLheaderRole.replace("%data%", bio.role)
+		$("#header").prepend(formattedRole);
+		$("#header").prepend(formattedName);
+		
+		if (bio.pictureURL.length > 0) {
+			var formattedPic = HTMLbioPic.replace("%data%", bio.pictureURL);
+			$('#header').append(formattedPic);
+		}
+		if (bio.welcomeMessage.length > 0) {
+			var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+			$('#header').append(formattedWelcomeMsg);
+		}
+		if (bio.contacts.mobile.length > 0) {
+			var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+			$('.flex-box').append(formattedMobile);
+		}
+		if (bio.contacts.email.length > 0) {
+			var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+			$('.flex-box').append(formattedEmail);
+		}
+		if (bio.contacts.twitter.length > 0) {
+			var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+			$('.flex-box').append(formattedTwitter);
+		}
+		if (bio.contacts.github.length > 0) {
+			var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+			$('.flex-box').append(formattedGithub);
+		}
+		if (bio.contacts.blog.length > 0) {
+			var formattedBlog = HTMLworkDates.replace("%data%", bio.contacts.blog);
+			$('.flex-box').append(formattedBlog);
+		}
+		if (bio.contacts.location.length > 0) {
+			var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+			$('.flex-box').append(formattedLocation);
+		}
+	}
+	
+	// Check if there are skills listed, format them and add them to the resume.
+    if (bio.skills.length > 0) {
+		$('#header').append(HTMLskillsStart);
+		for ( i = 0; i < bio.skills.length; i++) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[i])
+			$('#skills').append(formattedSkill);
+		}
+	}
+	
+	// Format work information and add it to the resume
+	function displayWork () {
+		for ( job in work.jobs ) {
+			$('#workExperience').append(HTMLworkStart);
+			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+			var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+			var formattedEmployerTitle = formattedEmployer + formattedTitle;
+			$('.work-entry:last').append(formattedEmployerTitle);
+			var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+			$('.work-entry:last').append(formattedLocation);
+			var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+			$('.work-entry:last').append(formattedDates);
+			var formattedDescription = HTMLworkLocation.replace("%data%", work.jobs[job].description);
+			$('.work-entry:last').append(formattedDescription);
+			// Clear floats and add after last work-entry to fix parent div's height 
+			var clearFloats = '<div style="clear: both;"></div>'
+			$('.work-entry:last').append(clearFloats);
+		}
+	}
+	
+	// add display function to projects object. 
+	projects.display = function() {
+		for (project in projects.projects) {
+			$('#projects').append(HTMLprojectStart);
+			var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+			$('.project-entry:last').append(formattedTitle);
+			var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+			$('.project-entry:last').append(formattedDates);
+			var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+			$('.project-entry:last').append(formattedDescription);
+			if (projects.projects[project].images.length > 0) {
+				for (image in projects.projects[project].images) {
+					var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+					$('.project-entry:last').append(formattedImage);
+				}
+			}
+		}
+	}
+	
+	// display projects
+	projects.display();
+	
+	// add a map to the resume
+	$('#mapDiv').append(googleMap);
