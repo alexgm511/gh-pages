@@ -87,9 +87,9 @@ a {
 .welcome-message {
   font-family: 'Gloria Hallelujah', cursive;
   padding: 20px 0 20px 0;
-  font-size: 30px;
+  font-size: 25px;
   color: #b5b682;
-  line-height: 70px;
+  line-height: 50px;
 }
 
 #skillsH3 {
@@ -148,7 +148,7 @@ a {
 
 #skills.flex-box {
   flex-direction: column;
-  line-height: 30px;
+  line-height: 24px;
 }
 
 .center-content {
@@ -171,7 +171,7 @@ ul {
 
 img {
   padding: 10px;
-  max-width: 440px;
+  max-width: 430px;
 }
 
 /* Bar chart stuff */
@@ -192,7 +192,7 @@ span {
 
 .role {
   color: #7c9885;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 em {
@@ -207,6 +207,10 @@ em {
   #letsConnect {
     margin-top: 5%;
   }
+  img {
+	max-width: 375px;
+  }
+
 }
 
 @media only screen and (max-width:900px) {
