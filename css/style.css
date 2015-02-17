@@ -146,6 +146,11 @@ a {
   padding: 10px;
 }
 
+#skills.flex-box {
+  flex-direction: column;
+  line-height: 30px;
+}
+
 .center-content {
   padding-top: 2.5%;
   padding-left: 5%;
@@ -186,8 +191,12 @@ span {
 }
 
 .role {
-  color: #28666e;
+  color: #7c9885;
   font-size: 20px;
+}
+
+em {
+  color: #28666e;
 }
 
 #letsConnect {

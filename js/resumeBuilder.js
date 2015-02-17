@@ -24,14 +24,16 @@ var education = {
 	"schools": [
 		{
 		"name": "Pratt Institute",
+		"degree": "Master of Science",
+		"graduation": "1988",
 		"location": "New York, NY",
-		"major": ["Communications Design"],
-		"graduation": "1988"
+		"major": ["Communications Design"]
 		}, {
 		"name": "University of Florida",
+		"degree": "Bachelor of Arts",
+		"graduation": "1978",
 		"location": "Gainesville, FL",
-		"major": ["Graphic Design"],
-		"graduation": "1978"
+		"major": ["Graphic Design"]
 		}
 	],
 
@@ -102,11 +104,8 @@ var projects = {
 	
 	// call the displayContact function
 	displayContact();
-	// call the displayWork function
-	displayWork();
 	
 	// Format name and contact information and add it to the resume
-
 	function displayContact () {
 		var formattedName = HTMLheaderName.replace("%data%", bio.name);
 		var formattedRole = HTMLheaderRole.replace("%data%", bio.role)
@@ -156,6 +155,9 @@ var projects = {
 		}
 	}
 	
+	// call the displayWork function
+	displayWork();
+
 	// Format work information and add it to the resume
 	function displayWork () {
 		for ( job in work.jobs ) {
@@ -197,6 +199,29 @@ var projects = {
 	
 	// display projects
 	projects.display();
+
+	// display Education
+	displayEducation();
+	
+	// Format work information and add it to the resume
+	function displayEducation () {
+		for ( school in education.schools ) {
+			$('#education').append(HTMLschoolStart);
+			var formattedSchool = HTMLschoolName.replace("%data%", education.schools[school].name);
+			var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+			var formattedSchoolDegree = formattedSchool + formattedDegree;
+			$('.education-entry:last').append(formattedSchoolDegree);
+			var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].graduation);
+			$('.education-entry:last').append(formattedDates);
+			var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+			$('.education-entry:last').append(formattedLocation);
+			var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+			$('.education-entry:last').append(formattedMajor);
+			// Clear floats and add after last work-entry to fix parent div's height 
+			var clearFloats = '<div style="clear: both;"></div>'
+			$('.education-entry:last').append(clearFloats);
+		}
+	}
 	
 	// add a map to the resume
 	$('#mapDiv').append(googleMap);
